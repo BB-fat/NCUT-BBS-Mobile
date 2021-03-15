@@ -1,0 +1,3 @@
+[submodule "ncut_bbs/ncut_bbs_proto"]
+	path = ncut_bbs/ncut_bbs_proto
+	url = git@github.com:BB-fat/ncut_bbs_proto.git

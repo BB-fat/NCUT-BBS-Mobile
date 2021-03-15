@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ncut_bbs/logic/api/manager.dart';
+import 'package:ncut_bbs/logic/hive/helper.dart';
 
-void main() {
+Future main() async {
+  await HiveHelper.instance.initHive();
+  ApiManager.instance;
   runApp(MyApp());
 }
 
@@ -100,6 +104,9 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            ElevatedButton(onPressed: () {
+              ApiManager.instance.refreshToken();
+            }, child: Text("Test api"))
           ],
         ),
       ),
