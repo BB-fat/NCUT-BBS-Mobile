@@ -23,24 +23,27 @@ class ApiManager {
 
   String get token => HiveHelper.instance.defaultBox.get(_kToken);
 
+  Map get tokenHeader => {_kToken: token};
+
   set _token(String v) => HiveHelper.instance.defaultBox.put(_kToken, v);
 
   String get baseURL => "http://localhost:8080/v1";
 
-  Future refreshToken() async {
+  Future<bool> refreshToken() async {
     var res = await client
         .get(Uri.parse("$baseURL/refresh-token"), headers: {"token": token});
     if (res.statusCode == 401) {
-      print("认证失败");
       print("显示登陆页面");
+      return false;
     } else {
-      print(res.body);
       var data = RefreshTokenReply.create()..mergeFromProto3Json(jsonDecode(res.body));
       if (data.success) {
         print("刷新成功，新token：${data.token}");
         _token = data.token;
+        return true;
       } else {
         print("显示登陆页面");
+        return false;
       }
     }
   }
