@@ -14,9 +14,9 @@ class ApiBase<Reply extends GeneratedMessage> {
 
   Client get client => ApiManager.instance.client;
 
-  Map get tokenHeader => ApiManager.instance.tokenHeader;
+  Map<String, String> get tokenHeader => ApiManager.instance.tokenHeader;
 
-  String get url => "${ApiManager.instance.baseURL}/$cgiName";
+  String get url => "$baseURL/$cgiName";
 
   String get cgiName => "";
 

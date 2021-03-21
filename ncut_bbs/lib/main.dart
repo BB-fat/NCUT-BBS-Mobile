@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ncut_bbs/logic/account/api.dart';
 import 'package:ncut_bbs/logic/api/manager.dart';
 import 'package:ncut_bbs/logic/hive/helper.dart';
+import 'package:ncut_bbs/proto/account/account.pb.dart';
 
 Future main() async {
   await HiveHelper.instance.initHive();
@@ -104,9 +106,17 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            ElevatedButton(onPressed: () {
-              ApiManager.instance.refreshToken();
-            }, child: Text("Test api"))
+            ElevatedButton(
+                onPressed: () {
+                  ApiManager.instance.refreshToken();
+                },
+                child: Text("Refresh Token")),
+            ElevatedButton(
+                onPressed: () async {
+                  var res = await GetUserInfoApi().start();
+                  print(res);
+                },
+                child: Text("GetUserInfo")),
           ],
         ),
       ),
