@@ -22,6 +22,9 @@ class ApiBase<Reply extends GeneratedMessage> {
 
   Future<Reply> start() async {
     var res = await doRequest();
+    if (res == null) {
+      return null;
+    }
     if (res.statusCode == 401) {
       var success = await ApiManager.instance.refreshToken();
       if (success) {

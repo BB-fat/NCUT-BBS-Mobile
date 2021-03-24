@@ -1,7 +1,10 @@
 import 'dart:convert';
 
+import 'package:get/get.dart';
+import 'package:ncut_bbs/logic/account/manager.dart';
 import 'package:ncut_bbs/logic/hive/helper.dart';
 import 'package:http/http.dart' as http;
+import 'package:ncut_bbs/page/account/login.dart';
 import 'package:ncut_bbs/proto/session/session.pb.dart';
 
 const baseURL = "http://localhost:8080/v1";
@@ -33,7 +36,7 @@ class ApiManager {
     var res = await client.get(Uri.parse("$baseURL/refresh-token"),
         headers: tokenHeader);
     if (res.statusCode == 401) {
-      print("显示登陆页面");
+      AccountManager.instance.logout(info: "登陆过期，请重新登陆。");
       return false;
     } else {
       var data = RefreshTokenReply.create()
@@ -43,7 +46,7 @@ class ApiManager {
         _token = data.token;
         return true;
       } else {
-        print("显示登陆页面");
+        AccountManager.instance.logout();
         return false;
       }
     }

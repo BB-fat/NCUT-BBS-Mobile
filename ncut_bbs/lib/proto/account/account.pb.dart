@@ -134,46 +134,43 @@ class LoginReply extends $pb.GeneratedMessage {
   void clearToken() => clearField(3);
 }
 
-class GetUserInfoReply extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('GetUserInfoReply',
+class UserInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('UserInfo',
       package: const $pb.PackageName('account'), createEmptyInstance: create)
     ..aInt64(1, 'id')
     ..aOS(2, 'accountName')
     ..aOS(3, 'realName')
-    ..e<GetUserInfoReply_Sex>(4, 'sex', $pb.PbFieldType.OE,
-        defaultOrMaker: GetUserInfoReply_Sex.MALE,
-        valueOf: GetUserInfoReply_Sex.valueOf,
-        enumValues: GetUserInfoReply_Sex.values)
+    ..e<Sex>(4, 'sex', $pb.PbFieldType.OE,
+        defaultOrMaker: Sex.MALE, valueOf: Sex.valueOf, enumValues: Sex.values)
     ..aOS(5, 'college')
-    ..e<GetUserInfoReply_AccountStatus>(6, 'accountStatus', $pb.PbFieldType.OE,
-        defaultOrMaker: GetUserInfoReply_AccountStatus.UNNAMED,
-        valueOf: GetUserInfoReply_AccountStatus.valueOf,
-        enumValues: GetUserInfoReply_AccountStatus.values)
+    ..e<AccountStatus>(6, 'accountStatus', $pb.PbFieldType.OE,
+        defaultOrMaker: AccountStatus.UNNAMED,
+        valueOf: AccountStatus.valueOf,
+        enumValues: AccountStatus.values)
     ..a<$core.int>(7, 'grade', $pb.PbFieldType.O3)
     ..aOS(8, 'avatar')
     ..hasRequiredFields = false;
 
-  GetUserInfoReply._() : super();
-  factory GetUserInfoReply() => create();
-  factory GetUserInfoReply.fromBuffer($core.List<$core.int> i,
+  UserInfo._() : super();
+  factory UserInfo() => create();
+  factory UserInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory GetUserInfoReply.fromJson($core.String i,
+  factory UserInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  GetUserInfoReply clone() => GetUserInfoReply()..mergeFromMessage(this);
-  GetUserInfoReply copyWith(void Function(GetUserInfoReply) updates) =>
-      super.copyWith((message) => updates(message as GetUserInfoReply));
+  UserInfo clone() => UserInfo()..mergeFromMessage(this);
+  UserInfo copyWith(void Function(UserInfo) updates) =>
+      super.copyWith((message) => updates(message as UserInfo));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static GetUserInfoReply create() => GetUserInfoReply._();
-  GetUserInfoReply createEmptyInstance() => create();
-  static $pb.PbList<GetUserInfoReply> createRepeated() =>
-      $pb.PbList<GetUserInfoReply>();
+  static UserInfo create() => UserInfo._();
+  UserInfo createEmptyInstance() => create();
+  static $pb.PbList<UserInfo> createRepeated() => $pb.PbList<UserInfo>();
   @$core.pragma('dart2js:noInline')
-  static GetUserInfoReply getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GetUserInfoReply>(create);
-  static GetUserInfoReply _defaultInstance;
+  static UserInfo getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UserInfo>(create);
+  static UserInfo _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get id => $_getI64(0);
@@ -212,9 +209,9 @@ class GetUserInfoReply extends $pb.GeneratedMessage {
   void clearRealName() => clearField(3);
 
   @$pb.TagNumber(4)
-  GetUserInfoReply_Sex get sex => $_getN(3);
+  Sex get sex => $_getN(3);
   @$pb.TagNumber(4)
-  set sex(GetUserInfoReply_Sex v) {
+  set sex(Sex v) {
     setField(4, v);
   }
 
@@ -236,9 +233,9 @@ class GetUserInfoReply extends $pb.GeneratedMessage {
   void clearCollege() => clearField(5);
 
   @$pb.TagNumber(6)
-  GetUserInfoReply_AccountStatus get accountStatus => $_getN(5);
+  AccountStatus get accountStatus => $_getN(5);
   @$pb.TagNumber(6)
-  set accountStatus(GetUserInfoReply_AccountStatus v) {
+  set accountStatus(AccountStatus v) {
     setField(6, v);
   }
 
@@ -270,4 +267,61 @@ class GetUserInfoReply extends $pb.GeneratedMessage {
   $core.bool hasAvatar() => $_has(7);
   @$pb.TagNumber(8)
   void clearAvatar() => clearField(8);
+}
+
+class GetUserInfoReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('GetUserInfoReply',
+      package: const $pb.PackageName('account'), createEmptyInstance: create)
+    ..aOM<UserInfo>(1, 'userInfo',
+        protoName: 'userInfo', subBuilder: UserInfo.create)
+    ..aOS(2, 'message')
+    ..hasRequiredFields = false;
+
+  GetUserInfoReply._() : super();
+  factory GetUserInfoReply() => create();
+  factory GetUserInfoReply.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GetUserInfoReply.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  GetUserInfoReply clone() => GetUserInfoReply()..mergeFromMessage(this);
+  GetUserInfoReply copyWith(void Function(GetUserInfoReply) updates) =>
+      super.copyWith((message) => updates(message as GetUserInfoReply));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetUserInfoReply create() => GetUserInfoReply._();
+  GetUserInfoReply createEmptyInstance() => create();
+  static $pb.PbList<GetUserInfoReply> createRepeated() =>
+      $pb.PbList<GetUserInfoReply>();
+  @$core.pragma('dart2js:noInline')
+  static GetUserInfoReply getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetUserInfoReply>(create);
+  static GetUserInfoReply _defaultInstance;
+
+  @$pb.TagNumber(1)
+  UserInfo get userInfo => $_getN(0);
+  @$pb.TagNumber(1)
+  set userInfo(UserInfo v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasUserInfo() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserInfo() => clearField(1);
+  @$pb.TagNumber(1)
+  UserInfo ensureUserInfo() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get message => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set message($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasMessage() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMessage() => clearField(2);
 }
