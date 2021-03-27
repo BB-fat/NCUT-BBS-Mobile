@@ -30,7 +30,7 @@ class ApiManager {
 
   Map<String, String> get tokenHeader => {_kToken: token};
 
-  set _token(String v) => HiveHelper.instance.defaultBox.put(_kToken, v);
+  set token(String v) => HiveHelper.instance.defaultBox.put(_kToken, v);
 
   Future<bool> refreshToken() async {
     var res = await client.get(Uri.parse("$baseURL/refresh-token"),
@@ -43,7 +43,7 @@ class ApiManager {
         ..mergeFromProto3Json(jsonDecode(res.body));
       if (data.success) {
         print("刷新成功，新token：${data.token}");
-        _token = data.token;
+        token = data.token;
         return true;
       } else {
         AccountManager.instance.logout();

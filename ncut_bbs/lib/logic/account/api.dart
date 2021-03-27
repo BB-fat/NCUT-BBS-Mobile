@@ -19,3 +19,9 @@ class GetUserInfoApi extends ApiGet<GetUserInfoReply> {
     }
   }
 }
+
+class LoginByPasswordApi extends ApiPost<LoginReply> {
+  LoginByPasswordApi(LoginRequest request) : super(request, LoginReply());
+  @override
+  String get cgiName => "$_baseCGI/login";
+}

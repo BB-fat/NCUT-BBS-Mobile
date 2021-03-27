@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:ncut_bbs/logic/api/base.dart';
 import 'package:ncut_bbs/proto/common/common.pb.dart';
 import 'package:protobuf/protobuf.dart';
@@ -16,7 +18,7 @@ class ApiPost<Reply extends GeneratedMessage> extends ApiBase<Reply> {
 
   @override
   Future<Response> doRequest() => client.post(Uri.parse(url),
-      body: request.writeToJson(), headers: tokenHeader);
+      body: jsonEncode(request.toProto3Json()), headers: tokenHeader);
 }
 
 class ApiDelete<Reply extends GeneratedMessage> extends ApiBase<Reply> {
@@ -25,5 +27,5 @@ class ApiDelete<Reply extends GeneratedMessage> extends ApiBase<Reply> {
 
   @override
   Future<Response> doRequest() => client.delete(Uri.parse(url),
-      body: request.writeToJson(), headers: tokenHeader);
+      body: jsonEncode(request.toProto3Json()), headers: tokenHeader);
 }
