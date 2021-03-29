@@ -1,13 +1,12 @@
 import 'dart:convert';
 
-import 'package:get/get.dart';
 import 'package:ncut_bbs/logic/account/manager.dart';
 import 'package:ncut_bbs/logic/hive/helper.dart';
 import 'package:http/http.dart' as http;
-import 'package:ncut_bbs/page/account/login.dart';
 import 'package:ncut_bbs/proto/session/session.pb.dart';
 
 const baseURL = "http://localhost:8080/v1";
+const staticURL = "http://localhost:8080/static";
 
 class ApiManager {
   static ApiManager _instance;
