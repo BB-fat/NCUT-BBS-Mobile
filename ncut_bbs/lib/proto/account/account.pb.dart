@@ -325,3 +325,191 @@ class GetUserInfoReply extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMessage() => clearField(2);
 }
+
+class CreateAccountRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('CreateAccountRequest',
+      package: const $pb.PackageName('account'), createEmptyInstance: create)
+    ..aOS(2, 'accountName')
+    ..aOS(3, 'realName')
+    ..e<Sex>(4, 'sex', $pb.PbFieldType.OE,
+        defaultOrMaker: Sex.MALE, valueOf: Sex.valueOf, enumValues: Sex.values)
+    ..aOS(5, 'college')
+    ..a<$core.int>(7, 'grade', $pb.PbFieldType.O3)
+    ..aOS(8, 'avatar')
+    ..aOS(9, 'password')
+    ..hasRequiredFields = false;
+
+  CreateAccountRequest._() : super();
+  factory CreateAccountRequest() => create();
+  factory CreateAccountRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory CreateAccountRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  CreateAccountRequest clone() =>
+      CreateAccountRequest()..mergeFromMessage(this);
+  CreateAccountRequest copyWith(void Function(CreateAccountRequest) updates) =>
+      super.copyWith((message) => updates(message as CreateAccountRequest));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CreateAccountRequest create() => CreateAccountRequest._();
+  CreateAccountRequest createEmptyInstance() => create();
+  static $pb.PbList<CreateAccountRequest> createRepeated() =>
+      $pb.PbList<CreateAccountRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CreateAccountRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreateAccountRequest>(create);
+  static CreateAccountRequest _defaultInstance;
+
+  @$pb.TagNumber(2)
+  $core.String get accountName => $_getSZ(0);
+  @$pb.TagNumber(2)
+  set accountName($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasAccountName() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearAccountName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get realName => $_getSZ(1);
+  @$pb.TagNumber(3)
+  set realName($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasRealName() => $_has(1);
+  @$pb.TagNumber(3)
+  void clearRealName() => clearField(3);
+
+  @$pb.TagNumber(4)
+  Sex get sex => $_getN(2);
+  @$pb.TagNumber(4)
+  set sex(Sex v) {
+    setField(4, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasSex() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearSex() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get college => $_getSZ(3);
+  @$pb.TagNumber(5)
+  set college($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasCollege() => $_has(3);
+  @$pb.TagNumber(5)
+  void clearCollege() => clearField(5);
+
+  @$pb.TagNumber(7)
+  $core.int get grade => $_getIZ(4);
+  @$pb.TagNumber(7)
+  set grade($core.int v) {
+    $_setSignedInt32(4, v);
+  }
+
+  @$pb.TagNumber(7)
+  $core.bool hasGrade() => $_has(4);
+  @$pb.TagNumber(7)
+  void clearGrade() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get avatar => $_getSZ(5);
+  @$pb.TagNumber(8)
+  set avatar($core.String v) {
+    $_setString(5, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasAvatar() => $_has(5);
+  @$pb.TagNumber(8)
+  void clearAvatar() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get password => $_getSZ(6);
+  @$pb.TagNumber(9)
+  set password($core.String v) {
+    $_setString(6, v);
+  }
+
+  @$pb.TagNumber(9)
+  $core.bool hasPassword() => $_has(6);
+  @$pb.TagNumber(9)
+  void clearPassword() => clearField(9);
+}
+
+class CreateAccountReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('CreateAccountReply',
+      package: const $pb.PackageName('account'), createEmptyInstance: create)
+    ..aOB(1, 'success')
+    ..aOS(2, 'message')
+    ..aOS(3, 'token')
+    ..hasRequiredFields = false;
+
+  CreateAccountReply._() : super();
+  factory CreateAccountReply() => create();
+  factory CreateAccountReply.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory CreateAccountReply.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  CreateAccountReply clone() => CreateAccountReply()..mergeFromMessage(this);
+  CreateAccountReply copyWith(void Function(CreateAccountReply) updates) =>
+      super.copyWith((message) => updates(message as CreateAccountReply));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CreateAccountReply create() => CreateAccountReply._();
+  CreateAccountReply createEmptyInstance() => create();
+  static $pb.PbList<CreateAccountReply> createRepeated() =>
+      $pb.PbList<CreateAccountReply>();
+  @$core.pragma('dart2js:noInline')
+  static CreateAccountReply getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreateAccountReply>(create);
+  static CreateAccountReply _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get success => $_getBF(0);
+  @$pb.TagNumber(1)
+  set success($core.bool v) {
+    $_setBool(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSuccess() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSuccess() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get message => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set message($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasMessage() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMessage() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get token => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set token($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasToken() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearToken() => clearField(3);
+}

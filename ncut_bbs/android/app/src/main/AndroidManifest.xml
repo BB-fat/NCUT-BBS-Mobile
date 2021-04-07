@@ -2,6 +2,7 @@
     package="com.example.ncut_bbs">
    <application
         android:label="ncut_bbs"
+        android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

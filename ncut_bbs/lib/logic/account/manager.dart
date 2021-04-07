@@ -5,6 +5,8 @@ import 'package:ncut_bbs/logic/account/api.dart';
 import 'package:ncut_bbs/logic/api/manager.dart';
 import 'package:ncut_bbs/logic/hive/helper.dart';
 import 'package:ncut_bbs/page/account/login.dart';
+import 'package:ncut_bbs/page/account/pending_review.dart';
+import 'package:ncut_bbs/page/account/verified.dart';
 import 'package:ncut_bbs/page/home/home.dart';
 import 'package:ncut_bbs/proto/account/account.pb.dart';
 
@@ -44,10 +46,16 @@ class AccountManager {
       return LoginPage(
         isHome: true,
       );
-    } else if (userInfo.accountStatus == AccountStatus.ACTIVE) {
-      return HomePage();
-    } else {
-      return HomePage();
+    }
+    switch (userInfo.accountStatus) {
+      case AccountStatus.ACTIVE:
+        return HomePage();
+      case AccountStatus.UNNAMED:
+        return VerifiedPage();
+      case AccountStatus.PENDING_REVIEW:
+        return PendingReviewPage();
+      default:
+        return LoginPage();
     }
   }
 

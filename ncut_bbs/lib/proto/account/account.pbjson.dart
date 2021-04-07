@@ -83,3 +83,32 @@ const GetUserInfoReply$json = const {
     const {'1': 'message', '3': 2, '4': 1, '5': 9, '10': 'message'},
   ],
 };
+
+const CreateAccountRequest$json = const {
+  '1': 'CreateAccountRequest',
+  '2': const [
+    const {'1': 'account_name', '3': 2, '4': 1, '5': 9, '10': 'accountName'},
+    const {'1': 'password', '3': 9, '4': 1, '5': 9, '10': 'password'},
+    const {'1': 'real_name', '3': 3, '4': 1, '5': 9, '10': 'realName'},
+    const {
+      '1': 'sex',
+      '3': 4,
+      '4': 1,
+      '5': 14,
+      '6': '.account.Sex',
+      '10': 'sex'
+    },
+    const {'1': 'college', '3': 5, '4': 1, '5': 9, '10': 'college'},
+    const {'1': 'grade', '3': 7, '4': 1, '5': 5, '10': 'grade'},
+    const {'1': 'avatar', '3': 8, '4': 1, '5': 9, '10': 'avatar'},
+  ],
+};
+
+const CreateAccountReply$json = const {
+  '1': 'CreateAccountReply',
+  '2': const [
+    const {'1': 'success', '3': 1, '4': 1, '5': 8, '10': 'success'},
+    const {'1': 'message', '3': 2, '4': 1, '5': 9, '10': 'message'},
+    const {'1': 'token', '3': 3, '4': 1, '5': 9, '10': 'token'},
+  ],
+};
