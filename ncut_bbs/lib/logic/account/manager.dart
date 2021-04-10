@@ -79,4 +79,14 @@ class AccountManager {
     ApiManager.instance.token = null;
     Get.off(() => LoginPage(isHome: true));
   }
+
+  Future createAccount(CreateAccountRequest data) async {
+    var res = await CreateAccountApi(data).start();
+    if (res.success) {
+      ApiManager.instance.token = res.token;
+      Get.off(() => VerifiedPage());
+    } else {
+      BotToast.showText(text: res.message);
+    }
+  }
 }

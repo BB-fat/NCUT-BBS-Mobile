@@ -25,3 +25,10 @@ class LoginByPasswordApi extends ApiPost<LoginReply> {
   @override
   String get cgiName => "$_baseCGI/login";
 }
+
+class CreateAccountApi extends ApiPost<CreateAccountReply> {
+  CreateAccountApi(CreateAccountRequest request)
+      : super(request, CreateAccountReply());
+  @override
+  String get cgiName => "$_baseCGI/create";
+}
