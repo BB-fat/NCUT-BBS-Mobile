@@ -89,4 +89,16 @@ class AccountManager {
       BotToast.showText(text: res.message);
     }
   }
+
+  Future submitVerify(String imageUrl, String remark) async {
+    var res = await SubmitVerifyApi(SubmitVerifyInfoRequest()
+          ..image = imageUrl
+          ..remark = remark)
+        .start();
+    if (res.success) {
+      Get.to(() => PendingReviewPage());
+    } else {
+      BotToast.showText(text: res.message);
+    }
+  }
 }

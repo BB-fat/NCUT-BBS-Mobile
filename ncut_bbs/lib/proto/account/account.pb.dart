@@ -513,3 +513,115 @@ class CreateAccountReply extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearToken() => clearField(3);
 }
+
+class SubmitVerifyInfoRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SubmitVerifyInfoRequest',
+      package: const $pb.PackageName('account'), createEmptyInstance: create)
+    ..aOS(1, 'image')
+    ..aOS(2, 'remark')
+    ..hasRequiredFields = false;
+
+  SubmitVerifyInfoRequest._() : super();
+  factory SubmitVerifyInfoRequest() => create();
+  factory SubmitVerifyInfoRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SubmitVerifyInfoRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  SubmitVerifyInfoRequest clone() =>
+      SubmitVerifyInfoRequest()..mergeFromMessage(this);
+  SubmitVerifyInfoRequest copyWith(
+          void Function(SubmitVerifyInfoRequest) updates) =>
+      super.copyWith((message) => updates(message as SubmitVerifyInfoRequest));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SubmitVerifyInfoRequest create() => SubmitVerifyInfoRequest._();
+  SubmitVerifyInfoRequest createEmptyInstance() => create();
+  static $pb.PbList<SubmitVerifyInfoRequest> createRepeated() =>
+      $pb.PbList<SubmitVerifyInfoRequest>();
+  @$core.pragma('dart2js:noInline')
+  static SubmitVerifyInfoRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SubmitVerifyInfoRequest>(create);
+  static SubmitVerifyInfoRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get image => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set image($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasImage() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearImage() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get remark => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set remark($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasRemark() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRemark() => clearField(2);
+}
+
+class SubmitVerifyInfoReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SubmitVerifyInfoReply',
+      package: const $pb.PackageName('account'), createEmptyInstance: create)
+    ..aOB(1, 'success')
+    ..aOS(2, 'message')
+    ..hasRequiredFields = false;
+
+  SubmitVerifyInfoReply._() : super();
+  factory SubmitVerifyInfoReply() => create();
+  factory SubmitVerifyInfoReply.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SubmitVerifyInfoReply.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  SubmitVerifyInfoReply clone() =>
+      SubmitVerifyInfoReply()..mergeFromMessage(this);
+  SubmitVerifyInfoReply copyWith(
+          void Function(SubmitVerifyInfoReply) updates) =>
+      super.copyWith((message) => updates(message as SubmitVerifyInfoReply));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SubmitVerifyInfoReply create() => SubmitVerifyInfoReply._();
+  SubmitVerifyInfoReply createEmptyInstance() => create();
+  static $pb.PbList<SubmitVerifyInfoReply> createRepeated() =>
+      $pb.PbList<SubmitVerifyInfoReply>();
+  @$core.pragma('dart2js:noInline')
+  static SubmitVerifyInfoReply getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SubmitVerifyInfoReply>(create);
+  static SubmitVerifyInfoReply _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get success => $_getBF(0);
+  @$pb.TagNumber(1)
+  set success($core.bool v) {
+    $_setBool(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSuccess() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSuccess() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get message => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set message($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasMessage() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMessage() => clearField(2);
+}

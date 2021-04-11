@@ -7,6 +7,7 @@ const _baseCGI = "account";
 
 class GetUserInfoApi extends ApiGet<GetUserInfoReply> {
   GetUserInfoApi() : super(GetUserInfoReply());
+
   @override
   String get cgiName => "$_baseCGI/user-info";
 
@@ -22,6 +23,7 @@ class GetUserInfoApi extends ApiGet<GetUserInfoReply> {
 
 class LoginByPasswordApi extends ApiPost<LoginReply> {
   LoginByPasswordApi(LoginRequest request) : super(request, LoginReply());
+
   @override
   String get cgiName => "$_baseCGI/login";
 }
@@ -29,6 +31,15 @@ class LoginByPasswordApi extends ApiPost<LoginReply> {
 class CreateAccountApi extends ApiPost<CreateAccountReply> {
   CreateAccountApi(CreateAccountRequest request)
       : super(request, CreateAccountReply());
+
   @override
   String get cgiName => "$_baseCGI/create";
+}
+
+class SubmitVerifyApi extends ApiPost<SubmitVerifyInfoReply> {
+  SubmitVerifyApi(SubmitVerifyInfoRequest request)
+      : super(request, SubmitVerifyInfoReply());
+
+  @override
+  String get cgiName => "$_baseCGI/verify";
 }
