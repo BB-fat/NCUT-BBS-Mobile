@@ -5,6 +5,7 @@ import 'package:ncut_bbs/logic/account/api.dart';
 import 'package:ncut_bbs/logic/api/manager.dart';
 import 'package:ncut_bbs/logic/hive/helper.dart';
 import 'package:ncut_bbs/page/account/login.dart';
+import 'package:ncut_bbs/page/account/not_pass.dart';
 import 'package:ncut_bbs/page/account/pending_review.dart';
 import 'package:ncut_bbs/page/account/verified.dart';
 import 'package:ncut_bbs/page/home/home.dart';
@@ -54,6 +55,8 @@ class AccountManager {
         return VerifiedPage();
       case AccountStatus.PENDING_REVIEW:
         return PendingReviewPage();
+      case AccountStatus.NOT_PASS:
+        return NotPassPage();
       default:
         return LoginPage();
     }
