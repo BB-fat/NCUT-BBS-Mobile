@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ncut_bbs/logic/account/api.dart';
-import 'package:ncut_bbs/logic/account/manager.dart';
-import 'package:ncut_bbs/logic/api/manager.dart';
+import 'package:ncut_bbs/page/forum/home.dart';
+import 'package:ncut_bbs/page/qa/home.dart';
+import 'package:ncut_bbs/page/user/home.dart';
+import 'package:ncut_bbs/ui/ui.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,55 +10,40 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
+  final bottomBarItems = [
+    {"icon": Icon(Icons.question_answer), "title": "论坛"},
+    {"icon": Icon(Icons.home), "title": "问答"},
+    {"icon": Icon(Icons.account_circle), "title": "我的"},
+  ];
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  int currentIndex = 0;
+
+  void bottomBarIndexChange(int index) {
+    if (currentIndex == index) {
+//      TODO 刷新
+    } else {
+      setState(() {
+        currentIndex = index;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("首页"),
+    return BasePage(
+      title: bottomBarItems[currentIndex]["title"],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (i) => bottomBarIndexChange(i),
+        items: bottomBarItems
+            .map((e) =>
+                BottomNavigationBarItem(icon: e["icon"], label: e["title"]))
+            .toList(),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              '欢迎：${AccountManager.instance.userInfo.accountName}',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  ApiManager.instance.refreshToken();
-                },
-                child: Text("Refresh Token")),
-            ElevatedButton(
-                onPressed: () async {
-                  var res = await GetUserInfoApi().start();
-                  print(res);
-                },
-                child: Text("GetUserInfo")),
-            ElevatedButton(
-                onPressed: () {
-                  AccountManager.instance.logout(info: "退出登录");
-                },
-                child: Text("logout")),
-          ],
-        ),
+      body: IndexedStack(
+        index: currentIndex,
+        children: [ForumHomePage(), QAHomePage(), UserHomePage()],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
