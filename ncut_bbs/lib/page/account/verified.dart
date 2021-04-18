@@ -1,5 +1,5 @@
 import 'package:ncut_bbs/logic/account/manager.dart';
-import 'package:ncut_bbs/logic/image/ImageTool.dart';
+import 'package:ncut_bbs/logic/image/image_tool.dart';
 import 'package:ncut_bbs/ui/ui.dart';
 import 'dart:io';
 

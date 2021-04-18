@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:ncut_bbs/logic/account/manager.dart';
 import 'package:ncut_bbs/logic/app/config/manager.dart';
-import 'package:ncut_bbs/logic/image/ImageTool.dart';
+import 'package:ncut_bbs/logic/image/image_tool.dart';
 import 'package:ncut_bbs/proto/account/account.pb.dart';
 import 'package:ncut_bbs/ui/ui.dart';
 
