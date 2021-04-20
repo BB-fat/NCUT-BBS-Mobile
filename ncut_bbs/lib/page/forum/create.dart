@@ -62,8 +62,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                     TextField(
                       autofocus: true,
                       controller: titleController,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: titleTextStyle,
                       decoration: InputDecoration(labelText: "主题"),
                     ),
                     TextField(

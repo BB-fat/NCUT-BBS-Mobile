@@ -17,36 +17,11 @@ class ImageGallery extends StatelessWidget {
           itemBuilder: (context, index) => Container(
                 child: Stack(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(
-                          () => GestureDetector(
-                            onTap: () {
-                              Get.back();
-                            },
-                            child: Container(
-                              height: Get.size.height,
-                              width: Get.size.width,
-                              child: Center(
-                                child: Hero(
-                                  tag: imagePaths[index],
-                                  child: Image.file(
-                                    File(imagePaths[index]),
-                                    fit: BoxFit.fitHeight,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          transition: Transition.noTransition,
-                        );
-                      },
-                      child: Hero(
-                        tag: imagePaths[index],
-                        child: Image.file(
-                          File(imagePaths[index]),
-                          fit: BoxFit.fitHeight,
-                        ),
+                    ImagePreviewer(
+                      tag: imagePaths[index],
+                      image: Image.file(
+                        File(imagePaths[index]),
+                        fit: BoxFit.fitHeight,
                       ),
                     ),
                     Positioned(
@@ -78,6 +53,43 @@ class ImageGallery extends StatelessWidget {
                 width: 30,
               ),
           itemCount: imagePaths.length),
+    );
+  }
+}
+
+class ImagePreviewer extends StatelessWidget {
+  final Image image;
+  final String tag;
+
+  ImagePreviewer({this.tag, this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Get.to(
+          () => GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Container(
+              height: Get.size.height,
+              width: Get.size.width,
+              child: Center(
+                child: Hero(
+                  tag: tag,
+                  child: image,
+                ),
+              ),
+            ),
+          ),
+          transition: Transition.noTransition,
+        );
+      },
+      child: Hero(
+        tag: tag,
+        child: image,
+      ),
     );
   }
 }

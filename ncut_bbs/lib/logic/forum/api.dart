@@ -9,3 +9,10 @@ class CreatePostApi extends ApiPost<CreatePostReply> {
   @override
   String get cgiName => "$_baseCGI/post";
 }
+
+class GetPostListApi extends ApiGet<GetPostListReply> {
+  GetPostListApi() : super(GetPostListReply());
+
+  @override
+  String get cgiName => "$_baseCGI/all";
+}

@@ -12,3 +12,4 @@ export 'package:bot_toast/bot_toast.dart';
 part 'page.dart';
 part 'picker.dart';
 part 'image.dart';
+part 'font.dart';
