@@ -1,5 +1,7 @@
 import 'package:flutter/rendering.dart';
+import 'package:ncut_bbs/logic/forum/manager.dart';
 import 'package:ncut_bbs/logic/image/image_tool.dart';
+import 'package:ncut_bbs/page/forum/detail.dart';
 import 'package:ncut_bbs/ui/ui.dart';
 
 class CreatePostPage extends StatefulWidget {
@@ -28,7 +30,21 @@ class _CreatePostPageState extends State<CreatePostPage> {
     }
   }
 
-  Future submit() async {}
+  Future submit() async {
+    BotToast.showLoading();
+    List<String> urls = [];
+    for (var path in picturePaths) {
+      urls.add(await ImageTool.instance.uploadImage(path));
+    }
+    var postData = await ForumManager.instance.createPost(
+        title: titleController.text,
+        content: contentController.text,
+        pictures: urls);
+    BotToast.closeAllLoading();
+    Get.off(() => PostDetailPage(
+          postData: postData,
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
