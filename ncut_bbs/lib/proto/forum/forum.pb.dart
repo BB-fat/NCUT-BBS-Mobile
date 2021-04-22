@@ -21,8 +21,8 @@ class PostData extends $pb.GeneratedMessage {
     ..a<$core.int>(6, 'views', $pb.PbFieldType.O3)
     ..a<$core.int>(7, 'likes', $pb.PbFieldType.O3)
     ..aOS(8, 'content')
-    ..a<$core.int>(9, 'unlikes', $pb.PbFieldType.O3)
     ..pPS(10, 'pictures')
+    ..aOB(11, 'isLike')
     ..hasRequiredFields = false;
 
   PostData._() : super();
@@ -142,20 +142,20 @@ class PostData extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearContent() => clearField(8);
 
-  @$pb.TagNumber(9)
-  $core.int get unlikes => $_getIZ(8);
-  @$pb.TagNumber(9)
-  set unlikes($core.int v) {
-    $_setSignedInt32(8, v);
+  @$pb.TagNumber(10)
+  $core.List<$core.String> get pictures => $_getList(8);
+
+  @$pb.TagNumber(11)
+  $core.bool get isLike => $_getBF(9);
+  @$pb.TagNumber(11)
+  set isLike($core.bool v) {
+    $_setBool(9, v);
   }
 
-  @$pb.TagNumber(9)
-  $core.bool hasUnlikes() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearUnlikes() => clearField(9);
-
-  @$pb.TagNumber(10)
-  $core.List<$core.String> get pictures => $_getList(9);
+  @$pb.TagNumber(11)
+  $core.bool hasIsLike() => $_has(9);
+  @$pb.TagNumber(11)
+  void clearIsLike() => clearField(11);
 }
 
 class CreatePostRequest extends $pb.GeneratedMessage {
@@ -298,4 +298,129 @@ class GetPostListReply extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<PostData> get data => $_getList(0);
+}
+
+class LikePostRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('LikePostRequest',
+      package: const $pb.PackageName('forum'), createEmptyInstance: create)
+    ..a<$core.int>(1, 'id', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
+  LikePostRequest._() : super();
+  factory LikePostRequest() => create();
+  factory LikePostRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory LikePostRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  LikePostRequest clone() => LikePostRequest()..mergeFromMessage(this);
+  LikePostRequest copyWith(void Function(LikePostRequest) updates) =>
+      super.copyWith((message) => updates(message as LikePostRequest));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static LikePostRequest create() => LikePostRequest._();
+  LikePostRequest createEmptyInstance() => create();
+  static $pb.PbList<LikePostRequest> createRepeated() =>
+      $pb.PbList<LikePostRequest>();
+  @$core.pragma('dart2js:noInline')
+  static LikePostRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<LikePostRequest>(create);
+  static LikePostRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get id => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set id($core.int v) {
+    $_setSignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
+class UnLikePostRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('UnLikePostRequest',
+      package: const $pb.PackageName('forum'), createEmptyInstance: create)
+    ..a<$core.int>(1, 'id', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
+  UnLikePostRequest._() : super();
+  factory UnLikePostRequest() => create();
+  factory UnLikePostRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory UnLikePostRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  UnLikePostRequest clone() => UnLikePostRequest()..mergeFromMessage(this);
+  UnLikePostRequest copyWith(void Function(UnLikePostRequest) updates) =>
+      super.copyWith((message) => updates(message as UnLikePostRequest));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UnLikePostRequest create() => UnLikePostRequest._();
+  UnLikePostRequest createEmptyInstance() => create();
+  static $pb.PbList<UnLikePostRequest> createRepeated() =>
+      $pb.PbList<UnLikePostRequest>();
+  @$core.pragma('dart2js:noInline')
+  static UnLikePostRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UnLikePostRequest>(create);
+  static UnLikePostRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get id => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set id($core.int v) {
+    $_setSignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
+class GetOnePostReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('GetOnePostReply',
+      package: const $pb.PackageName('forum'), createEmptyInstance: create)
+    ..aOM<PostData>(1, 'data', subBuilder: PostData.create)
+    ..hasRequiredFields = false;
+
+  GetOnePostReply._() : super();
+  factory GetOnePostReply() => create();
+  factory GetOnePostReply.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GetOnePostReply.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  GetOnePostReply clone() => GetOnePostReply()..mergeFromMessage(this);
+  GetOnePostReply copyWith(void Function(GetOnePostReply) updates) =>
+      super.copyWith((message) => updates(message as GetOnePostReply));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetOnePostReply create() => GetOnePostReply._();
+  GetOnePostReply createEmptyInstance() => create();
+  static $pb.PbList<GetOnePostReply> createRepeated() =>
+      $pb.PbList<GetOnePostReply>();
+  @$core.pragma('dart2js:noInline')
+  static GetOnePostReply getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetOnePostReply>(create);
+  static GetOnePostReply _defaultInstance;
+
+  @$pb.TagNumber(1)
+  PostData get data => $_getN(0);
+  @$pb.TagNumber(1)
+  set data(PostData v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasData() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearData() => clearField(1);
+  @$pb.TagNumber(1)
+  PostData ensureData() => $_ensure(0);
 }

@@ -15,8 +15,8 @@ const PostData$json = const {
     const {'1': 'title', '3': 5, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'views', '3': 6, '4': 1, '5': 5, '10': 'views'},
     const {'1': 'likes', '3': 7, '4': 1, '5': 5, '10': 'likes'},
+    const {'1': 'is_like', '3': 11, '4': 1, '5': 8, '10': 'isLike'},
     const {'1': 'content', '3': 8, '4': 1, '5': 9, '10': 'content'},
-    const {'1': 'unlikes', '3': 9, '4': 1, '5': 5, '10': 'unlikes'},
     const {'1': 'pictures', '3': 10, '4': 3, '5': 9, '10': 'pictures'},
   ],
 };
@@ -51,6 +51,34 @@ const GetPostListReply$json = const {
       '1': 'data',
       '3': 1,
       '4': 3,
+      '5': 11,
+      '6': '.forum.PostData',
+      '10': 'data'
+    },
+  ],
+};
+
+const LikePostRequest$json = const {
+  '1': 'LikePostRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
+  ],
+};
+
+const UnLikePostRequest$json = const {
+  '1': 'UnLikePostRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
+  ],
+};
+
+const GetOnePostReply$json = const {
+  '1': 'GetOnePostReply',
+  '2': const [
+    const {
+      '1': 'data',
+      '3': 1,
+      '4': 1,
       '5': 11,
       '6': '.forum.PostData',
       '10': 'data'

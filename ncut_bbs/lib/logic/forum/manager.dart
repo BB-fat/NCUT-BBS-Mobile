@@ -40,4 +40,17 @@ class ForumManager {
     postListData = (await GetPostListApi().start()).data;
     _controller.sync();
   }
+
+  Future like(int postID) async {
+    await LikePostApi(LikePostRequest()..id = postID).start();
+    syncData();
+  }
+
+  Future unLike(int postID) async {
+    await UnLikePostApi(UnLikePostRequest()..id = postID).start();
+    syncData();
+  }
+
+  Future<PostData> getOne(int postID) async =>
+      (await GetOnePostApi(postID).start()).data;
 }
