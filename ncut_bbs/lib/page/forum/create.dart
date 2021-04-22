@@ -42,7 +42,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
         pictures: urls);
     BotToast.closeAllLoading();
     Get.off(() => PostDetailPage(
-          postData: postData,
+          data: postData,
         ));
   }
 
@@ -62,7 +62,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                     TextField(
                       autofocus: true,
                       controller: titleController,
-                      style: titleTextStyle,
+                      style: bigTitleTextStyle,
                       decoration: InputDecoration(labelText: "主题"),
                     ),
                     TextField(

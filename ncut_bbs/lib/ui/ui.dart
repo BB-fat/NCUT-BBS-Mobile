@@ -13,3 +13,4 @@ part 'page.dart';
 part 'picker.dart';
 part 'image.dart';
 part 'font.dart';
+part 'label.dart';

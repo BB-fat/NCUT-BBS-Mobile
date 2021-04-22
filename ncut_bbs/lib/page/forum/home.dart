@@ -1,4 +1,5 @@
 import 'package:ncut_bbs/logic/forum/controller.dart';
+import 'package:ncut_bbs/page/forum/cell.dart';
 import 'package:ncut_bbs/page/forum/create.dart';
 import 'package:ncut_bbs/ui/ui.dart';
 
@@ -15,8 +16,9 @@ class _ForumHomePageState extends State<ForumHomePage> {
       children: [
         Obx(
           () => ListView.separated(
-              itemBuilder: (context, index) =>
-                  Text(forumController.postListData[index].title),
+              itemBuilder: (context, index) => PostCell(
+                    data: forumController.postListData[index],
+                  ),
               separatorBuilder: (context, index) => Divider(),
               itemCount: forumController.postListData.length),
         ),

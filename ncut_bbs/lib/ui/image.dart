@@ -58,7 +58,7 @@ class ImageGallery extends StatelessWidget {
 }
 
 class ImagePreviewer extends StatelessWidget {
-  final Image image;
+  final Widget image;
   final String tag;
 
   ImagePreviewer({this.tag, this.image});
