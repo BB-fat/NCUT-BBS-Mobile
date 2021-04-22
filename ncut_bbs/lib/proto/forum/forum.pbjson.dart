@@ -85,3 +85,10 @@ const GetOnePostReply$json = const {
     },
   ],
 };
+
+const AddPostViewsRequest$json = const {
+  '1': 'AddPostViewsRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
+  ],
+};

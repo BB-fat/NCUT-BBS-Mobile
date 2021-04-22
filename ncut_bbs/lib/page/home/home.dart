@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ncut_bbs/logic/forum/manager.dart';
 import 'package:ncut_bbs/page/forum/home.dart';
 import 'package:ncut_bbs/page/qa/home.dart';
 import 'package:ncut_bbs/page/user/home.dart';
@@ -18,9 +19,25 @@ class _HomePageState extends State<HomePage> {
 
   int currentIndex = 0;
 
-  void bottomBarIndexChange(int index) {
+  bool loading = false;
+
+  String get title => loading
+      ? "${bottomBarItems[currentIndex]["title"]}(加载中)"
+      : bottomBarItems[currentIndex]["title"];
+
+  Future bottomBarIndexChange(int index) async {
     if (currentIndex == index) {
-//      TODO 刷新
+      setState(() {
+        loading = true;
+      });
+      switch (index) {
+        case 0:
+          await ForumManager.instance.syncData();
+          break;
+      }
+      setState(() {
+        loading = false;
+      });
     } else {
       setState(() {
         currentIndex = index;
@@ -31,7 +48,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      title: bottomBarItems[currentIndex]["title"],
+      title: title,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (i) => bottomBarIndexChange(i),

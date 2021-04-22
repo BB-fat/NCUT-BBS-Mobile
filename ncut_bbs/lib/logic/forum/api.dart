@@ -39,3 +39,10 @@ class GetOnePostApi extends ApiGet<GetOnePostReply> {
   @override
   String get cgiName => "$_baseCGI/post?post_id=$postID";
 }
+
+class AddPostViewsApi extends ApiPost<EmptyMessage> {
+  AddPostViewsApi(AddPostViewsRequest request) : super(request, EmptyMessage());
+
+  @override
+  String get cgiName => "$_baseCGI/views";
+}

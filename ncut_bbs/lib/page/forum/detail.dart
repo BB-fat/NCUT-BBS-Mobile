@@ -17,6 +17,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
 
   initState() {
     data = widget.data;
+    ForumManager.instance.addViews(data.id);
     super.initState();
   }
 

@@ -53,4 +53,9 @@ class ForumManager {
 
   Future<PostData> getOne(int postID) async =>
       (await GetOnePostApi(postID).start()).data;
+
+  Future addViews(int postId) async {
+    await AddPostViewsApi(AddPostViewsRequest()..id = postId).start();
+    syncData();
+  }
 }

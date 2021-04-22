@@ -424,3 +424,44 @@ class GetOnePostReply extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   PostData ensureData() => $_ensure(0);
 }
+
+class AddPostViewsRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('AddPostViewsRequest',
+      package: const $pb.PackageName('forum'), createEmptyInstance: create)
+    ..a<$core.int>(1, 'id', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
+  AddPostViewsRequest._() : super();
+  factory AddPostViewsRequest() => create();
+  factory AddPostViewsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AddPostViewsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  AddPostViewsRequest clone() => AddPostViewsRequest()..mergeFromMessage(this);
+  AddPostViewsRequest copyWith(void Function(AddPostViewsRequest) updates) =>
+      super.copyWith((message) => updates(message as AddPostViewsRequest));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AddPostViewsRequest create() => AddPostViewsRequest._();
+  AddPostViewsRequest createEmptyInstance() => create();
+  static $pb.PbList<AddPostViewsRequest> createRepeated() =>
+      $pb.PbList<AddPostViewsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static AddPostViewsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AddPostViewsRequest>(create);
+  static AddPostViewsRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get id => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set id($core.int v) {
+    $_setSignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
