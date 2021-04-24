@@ -58,4 +58,14 @@ class ForumManager {
     await AddPostViewsApi(AddPostViewsRequest()..id = postId).start();
     syncData();
   }
+
+  Future<PostCommentData> createPostCommit(int postID, String content) async =>
+      (await CreatePostCommitApi(CreatePostCommentRequest()
+                ..postId = postID
+                ..content = content)
+              .start())
+          .data;
+
+  Future<List<PostCommentData>> getComments(int postID) async =>
+      (await GetPostCommentsApi(postID).start()).data;
 }

@@ -92,3 +92,57 @@ const AddPostViewsRequest$json = const {
     const {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
   ],
 };
+
+const PostCommentData$json = const {
+  '1': 'PostCommentData',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
+    const {
+      '1': 'author',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.account.UserInfo',
+      '10': 'author'
+    },
+    const {'1': 'post_id', '3': 3, '4': 1, '5': 5, '10': 'postId'},
+    const {'1': 'create_time', '3': 4, '4': 1, '5': 3, '10': 'createTime'},
+    const {'1': 'content', '3': 5, '4': 1, '5': 9, '10': 'content'},
+  ],
+};
+
+const CreatePostCommentRequest$json = const {
+  '1': 'CreatePostCommentRequest',
+  '2': const [
+    const {'1': 'post_id', '3': 1, '4': 1, '5': 5, '10': 'postId'},
+    const {'1': 'content', '3': 2, '4': 1, '5': 9, '10': 'content'},
+  ],
+};
+
+const CreatePostCommentReply$json = const {
+  '1': 'CreatePostCommentReply',
+  '2': const [
+    const {
+      '1': 'data',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.forum.PostCommentData',
+      '10': 'data'
+    },
+  ],
+};
+
+const GetPostCommentReply$json = const {
+  '1': 'GetPostCommentReply',
+  '2': const [
+    const {
+      '1': 'data',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.forum.PostCommentData',
+      '10': 'data'
+    },
+  ],
+};

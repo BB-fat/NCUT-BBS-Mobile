@@ -46,3 +46,19 @@ class AddPostViewsApi extends ApiPost<EmptyMessage> {
   @override
   String get cgiName => "$_baseCGI/views";
 }
+
+class CreatePostCommitApi extends ApiPost<CreatePostCommentReply> {
+  CreatePostCommitApi(CreatePostCommentRequest request)
+      : super(request, CreatePostCommentReply());
+
+  @override
+  String get cgiName => "$_baseCGI/comment";
+}
+
+class GetPostCommentsApi extends ApiGet<GetPostCommentReply> {
+  final int postID;
+  GetPostCommentsApi(this.postID) : super(GetPostCommentReply());
+
+  @override
+  String get cgiName => "$_baseCGI/comment?post_id=$postID";
+}

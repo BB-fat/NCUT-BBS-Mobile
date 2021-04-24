@@ -77,3 +77,58 @@ class PostCell extends StatelessWidget {
     );
   }
 }
+
+class PostCommentCell extends StatelessWidget {
+  final PostCommentData data;
+
+  const PostCommentCell({Key key, this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      width: Get.size.width,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                height: 40,
+                width: 40,
+                child: CircleAvatar(
+                  backgroundImage: CachedNetworkImageProvider(
+                    data.author.avatar,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    data.author.accountName,
+                    style: TextStyle(color: Colors.blue, fontSize: 18),
+                  ),
+                  Text(
+                    DateTime.fromMillisecondsSinceEpoch(
+                            data.createTime.toInt() * 1000)
+                        .toIso8601String(),
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  )
+                ],
+              )
+            ],
+          ),
+          Container(
+            width: Get.size.width,
+            padding: EdgeInsets.only(left: 50),
+            child: Text(data.content),
+          )
+        ],
+      ),
+    );
+  }
+}

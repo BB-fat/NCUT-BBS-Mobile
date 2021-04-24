@@ -10,6 +10,8 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../account/account.pb.dart' as $0;
+
 class PostData extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('PostData',
       package: const $pb.PackageName('forum'), createEmptyInstance: create)
@@ -464,4 +466,233 @@ class AddPostViewsRequest extends $pb.GeneratedMessage {
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
+}
+
+class PostCommentData extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('PostCommentData',
+      package: const $pb.PackageName('forum'), createEmptyInstance: create)
+    ..a<$core.int>(1, 'id', $pb.PbFieldType.O3)
+    ..aOM<$0.UserInfo>(2, 'author', subBuilder: $0.UserInfo.create)
+    ..a<$core.int>(3, 'postId', $pb.PbFieldType.O3)
+    ..aInt64(4, 'createTime')
+    ..aOS(5, 'content')
+    ..hasRequiredFields = false;
+
+  PostCommentData._() : super();
+  factory PostCommentData() => create();
+  factory PostCommentData.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory PostCommentData.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  PostCommentData clone() => PostCommentData()..mergeFromMessage(this);
+  PostCommentData copyWith(void Function(PostCommentData) updates) =>
+      super.copyWith((message) => updates(message as PostCommentData));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static PostCommentData create() => PostCommentData._();
+  PostCommentData createEmptyInstance() => create();
+  static $pb.PbList<PostCommentData> createRepeated() =>
+      $pb.PbList<PostCommentData>();
+  @$core.pragma('dart2js:noInline')
+  static PostCommentData getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PostCommentData>(create);
+  static PostCommentData _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get id => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set id($core.int v) {
+    $_setSignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $0.UserInfo get author => $_getN(1);
+  @$pb.TagNumber(2)
+  set author($0.UserInfo v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasAuthor() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAuthor() => clearField(2);
+  @$pb.TagNumber(2)
+  $0.UserInfo ensureAuthor() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.int get postId => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set postId($core.int v) {
+    $_setSignedInt32(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasPostId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPostId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get createTime => $_getI64(3);
+  @$pb.TagNumber(4)
+  set createTime($fixnum.Int64 v) {
+    $_setInt64(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasCreateTime() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCreateTime() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get content => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set content($core.String v) {
+    $_setString(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasContent() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearContent() => clearField(5);
+}
+
+class CreatePostCommentRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('CreatePostCommentRequest',
+      package: const $pb.PackageName('forum'), createEmptyInstance: create)
+    ..a<$core.int>(1, 'postId', $pb.PbFieldType.O3)
+    ..aOS(2, 'content')
+    ..hasRequiredFields = false;
+
+  CreatePostCommentRequest._() : super();
+  factory CreatePostCommentRequest() => create();
+  factory CreatePostCommentRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory CreatePostCommentRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  CreatePostCommentRequest clone() =>
+      CreatePostCommentRequest()..mergeFromMessage(this);
+  CreatePostCommentRequest copyWith(
+          void Function(CreatePostCommentRequest) updates) =>
+      super.copyWith((message) => updates(message as CreatePostCommentRequest));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CreatePostCommentRequest create() => CreatePostCommentRequest._();
+  CreatePostCommentRequest createEmptyInstance() => create();
+  static $pb.PbList<CreatePostCommentRequest> createRepeated() =>
+      $pb.PbList<CreatePostCommentRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CreatePostCommentRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreatePostCommentRequest>(create);
+  static CreatePostCommentRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get postId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set postId($core.int v) {
+    $_setSignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasPostId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPostId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get content => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set content($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasContent() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearContent() => clearField(2);
+}
+
+class CreatePostCommentReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('CreatePostCommentReply',
+      package: const $pb.PackageName('forum'), createEmptyInstance: create)
+    ..aOM<PostCommentData>(1, 'data', subBuilder: PostCommentData.create)
+    ..hasRequiredFields = false;
+
+  CreatePostCommentReply._() : super();
+  factory CreatePostCommentReply() => create();
+  factory CreatePostCommentReply.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory CreatePostCommentReply.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  CreatePostCommentReply clone() =>
+      CreatePostCommentReply()..mergeFromMessage(this);
+  CreatePostCommentReply copyWith(
+          void Function(CreatePostCommentReply) updates) =>
+      super.copyWith((message) => updates(message as CreatePostCommentReply));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CreatePostCommentReply create() => CreatePostCommentReply._();
+  CreatePostCommentReply createEmptyInstance() => create();
+  static $pb.PbList<CreatePostCommentReply> createRepeated() =>
+      $pb.PbList<CreatePostCommentReply>();
+  @$core.pragma('dart2js:noInline')
+  static CreatePostCommentReply getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreatePostCommentReply>(create);
+  static CreatePostCommentReply _defaultInstance;
+
+  @$pb.TagNumber(1)
+  PostCommentData get data => $_getN(0);
+  @$pb.TagNumber(1)
+  set data(PostCommentData v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasData() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearData() => clearField(1);
+  @$pb.TagNumber(1)
+  PostCommentData ensureData() => $_ensure(0);
+}
+
+class GetPostCommentReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('GetPostCommentReply',
+      package: const $pb.PackageName('forum'), createEmptyInstance: create)
+    ..pc<PostCommentData>(1, 'data', $pb.PbFieldType.PM,
+        subBuilder: PostCommentData.create)
+    ..hasRequiredFields = false;
+
+  GetPostCommentReply._() : super();
+  factory GetPostCommentReply() => create();
+  factory GetPostCommentReply.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GetPostCommentReply.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  GetPostCommentReply clone() => GetPostCommentReply()..mergeFromMessage(this);
+  GetPostCommentReply copyWith(void Function(GetPostCommentReply) updates) =>
+      super.copyWith((message) => updates(message as GetPostCommentReply));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetPostCommentReply create() => GetPostCommentReply._();
+  GetPostCommentReply createEmptyInstance() => create();
+  static $pb.PbList<GetPostCommentReply> createRepeated() =>
+      $pb.PbList<GetPostCommentReply>();
+  @$core.pragma('dart2js:noInline')
+  static GetPostCommentReply getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetPostCommentReply>(create);
+  static GetPostCommentReply _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<PostCommentData> get data => $_getList(0);
 }
