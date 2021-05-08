@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   final bottomBarItems = [
     {"icon": Icon(Icons.question_answer), "title": "论坛"},
     {"icon": Icon(Icons.home), "title": "问答"},
-    {"icon": Icon(Icons.account_circle), "title": "我的"},
+    {"icon": Icon(Icons.account_circle), "title": "我"},
   ];
 
   int currentIndex = 0;
