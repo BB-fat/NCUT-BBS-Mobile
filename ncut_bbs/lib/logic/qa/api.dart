@@ -10,3 +10,10 @@ class CreateQuestionApi extends ApiPost<CreateQuestionReply> {
   @override
   String get cgiName => "$_baseCGI/question";
 }
+
+class GetQuestionListApi extends ApiGet<GetQuestionListReply> {
+  GetQuestionListApi() : super(GetQuestionListReply());
+
+  @override
+  String get cgiName => "$_baseCGI/all-question";
+}

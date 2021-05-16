@@ -231,3 +231,37 @@ class CreateQuestionReply extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   QuestionData ensureData() => $_ensure(0);
 }
+
+class GetQuestionListReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('GetQuestionListReply',
+      package: const $pb.PackageName('qa'), createEmptyInstance: create)
+    ..pc<QuestionData>(1, 'data', $pb.PbFieldType.PM,
+        subBuilder: QuestionData.create)
+    ..hasRequiredFields = false;
+
+  GetQuestionListReply._() : super();
+  factory GetQuestionListReply() => create();
+  factory GetQuestionListReply.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory GetQuestionListReply.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  GetQuestionListReply clone() =>
+      GetQuestionListReply()..mergeFromMessage(this);
+  GetQuestionListReply copyWith(void Function(GetQuestionListReply) updates) =>
+      super.copyWith((message) => updates(message as GetQuestionListReply));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetQuestionListReply create() => GetQuestionListReply._();
+  GetQuestionListReply createEmptyInstance() => create();
+  static $pb.PbList<GetQuestionListReply> createRepeated() =>
+      $pb.PbList<GetQuestionListReply>();
+  @$core.pragma('dart2js:noInline')
+  static GetQuestionListReply getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetQuestionListReply>(create);
+  static GetQuestionListReply _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<QuestionData> get data => $_getList(0);
+}

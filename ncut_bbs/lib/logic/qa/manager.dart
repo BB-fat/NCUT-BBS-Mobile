@@ -17,7 +17,10 @@ class QAManager {
 
   List<QuestionData> questionList = [];
 
-  Future syncData() async {}
+  Future syncData() async {
+    questionList = (await GetQuestionListApi().start()).data;
+    _controller.sync();
+  }
 
   QAController _controller;
 

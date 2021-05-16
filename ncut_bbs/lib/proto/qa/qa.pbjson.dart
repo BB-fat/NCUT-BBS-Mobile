@@ -40,3 +40,17 @@ const CreateQuestionReply$json = const {
     },
   ],
 };
+
+const GetQuestionListReply$json = const {
+  '1': 'GetQuestionListReply',
+  '2': const [
+    const {
+      '1': 'data',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.qa.QuestionData',
+      '10': 'data'
+    },
+  ],
+};
