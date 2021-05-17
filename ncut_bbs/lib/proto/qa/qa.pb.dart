@@ -265,3 +265,46 @@ class GetQuestionListReply extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<QuestionData> get data => $_getList(0);
 }
+
+class AddQuestionViewsRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('AddQuestionViewsRequest',
+      package: const $pb.PackageName('qa'), createEmptyInstance: create)
+    ..a<$core.int>(1, 'id', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
+
+  AddQuestionViewsRequest._() : super();
+  factory AddQuestionViewsRequest() => create();
+  factory AddQuestionViewsRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AddQuestionViewsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  AddQuestionViewsRequest clone() =>
+      AddQuestionViewsRequest()..mergeFromMessage(this);
+  AddQuestionViewsRequest copyWith(
+          void Function(AddQuestionViewsRequest) updates) =>
+      super.copyWith((message) => updates(message as AddQuestionViewsRequest));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AddQuestionViewsRequest create() => AddQuestionViewsRequest._();
+  AddQuestionViewsRequest createEmptyInstance() => create();
+  static $pb.PbList<AddQuestionViewsRequest> createRepeated() =>
+      $pb.PbList<AddQuestionViewsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static AddQuestionViewsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AddQuestionViewsRequest>(create);
+  static AddQuestionViewsRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get id => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set id($core.int v) {
+    $_setSignedInt32(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}

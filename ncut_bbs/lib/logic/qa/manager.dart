@@ -40,4 +40,10 @@ class QAManager {
     syncData();
     return res.data;
   }
+
+  Future addViews(int questionID) async {
+    await AddQuestionViewApi(AddQuestionViewsRequest()..id = questionID)
+        .start();
+    syncData();
+  }
 }

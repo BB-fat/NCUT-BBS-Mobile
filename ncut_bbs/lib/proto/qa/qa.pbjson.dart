@@ -54,3 +54,10 @@ const GetQuestionListReply$json = const {
     },
   ],
 };
+
+const AddQuestionViewsRequest$json = const {
+  '1': 'AddQuestionViewsRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
+  ],
+};

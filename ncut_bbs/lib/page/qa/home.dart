@@ -1,6 +1,6 @@
 import 'package:ncut_bbs/logic/qa/controller.dart';
 import 'package:ncut_bbs/page/qa/cell.dart';
-import 'package:ncut_bbs/page/qa/create.dart';
+import 'package:ncut_bbs/page/qa/create_question.dart';
 import 'package:ncut_bbs/ui/ui.dart';
 
 class QAHomePage extends StatefulWidget {
