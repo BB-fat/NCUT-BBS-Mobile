@@ -1,6 +1,10 @@
+import 'package:ncut_bbs/logic/qa/manager.dart';
+import 'package:ncut_bbs/proto/qa/qa.pb.dart';
 import 'package:ncut_bbs/ui/ui.dart';
 
 class CreateAnswerPage extends StatefulWidget {
+  final QuestionData data;
+  CreateAnswerPage(this.data);
   @override
   _CreateAnswerPageState createState() => _CreateAnswerPageState();
 }
@@ -8,7 +12,16 @@ class CreateAnswerPage extends StatefulWidget {
 class _CreateAnswerPageState extends State<CreateAnswerPage> {
   final contentController = TextEditingController();
 
-  Future submit() async {}
+  Future submit() async {
+    if (contentController.text.length == 0) {
+      BotToast.showText(text: "内容不能为空");
+      return;
+    }
+    await QAManager.instance
+        .createAnswer(widget.data.id, contentController.text);
+    BotToast.showText(text: "评论成功");
+    Get.back();
+  }
 
   @override
   Widget build(BuildContext context) {

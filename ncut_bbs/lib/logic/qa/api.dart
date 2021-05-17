@@ -26,3 +26,33 @@ class AddQuestionViewApi extends ApiPost<EmptyMessage> {
   @override
   String get cgiName => "$_baseCGI/views";
 }
+
+class CreateAnswerApi extends ApiPost<EmptyMessage> {
+  CreateAnswerApi(CreateAnswerRequest request) : super(request, EmptyMessage());
+
+  @override
+  String get cgiName => "$_baseCGI/answer";
+}
+
+class GetAnswerApi extends ApiGet<GetAnswerReply> {
+  final int questionID;
+
+  GetAnswerApi(this.questionID) : super(GetAnswerReply());
+
+  @override
+  String get cgiName => "$_baseCGI/answer?question_id=$questionID";
+}
+
+class LikeAnswerApi extends ApiPost<EmptyMessage> {
+  LikeAnswerApi(LikeAnswerRequest request) : super(request, EmptyMessage());
+
+  @override
+  String get cgiName => "$_baseCGI/like";
+}
+
+class UnlikeAnswerApi extends ApiDelete<EmptyMessage> {
+  UnlikeAnswerApi(UnLikeAnswerRequest request) : super(request, EmptyMessage());
+
+  @override
+  String get cgiName => "$_baseCGI/like";
+}

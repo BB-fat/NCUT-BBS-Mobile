@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ncut_bbs/logic/qa/manager.dart';
+import 'package:ncut_bbs/page/qa/cell.dart';
 import 'package:ncut_bbs/page/qa/create_answer.dart';
 import 'package:ncut_bbs/proto/qa/qa.pb.dart';
 import 'package:ncut_bbs/ui/ui.dart';
@@ -19,11 +20,29 @@ class _QADetailPageState extends State<QADetailPage> {
   @override
   void initState() {
     QAManager.instance.addViews(questionData.id);
+    sync();
     super.initState();
   }
 
-  void createAnswer() {
-    Get.to(() => CreateAnswerPage());
+  List<AnswerData> answerData = [];
+
+  Future sync() async {
+    answerData = await QAManager.instance.getAnswer(questionData.id);
+    setState(() {});
+  }
+
+  Future createAnswer() async {
+    await Get.to(() => CreateAnswerPage(questionData));
+    sync();
+  }
+
+  Future pressLike(int index) async {
+    if (answerData[index].isLike) {
+      await QAManager.instance.unlikeAnswer(answerData[index].id);
+    } else {
+      await QAManager.instance.likeAnswer(answerData[index].id);
+    }
+    sync();
   }
 
   @override
@@ -61,32 +80,23 @@ class _QADetailPageState extends State<QADetailPage> {
                               ))
                           .toList() +
                       [
-//                          Align(
-//                            child: Text(
-//                              "全部评论(${commentsData?.length ?? 0})",
-//                              style: TextStyle(color: Colors.grey),
-//                            ),
-//                            alignment: Alignment.centerRight,
-//                          ),
+                        Align(
+                          child: Text(
+                            "全部回答(${answerData?.length ?? 0})",
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          alignment: Alignment.centerRight,
+                        ),
                         Divider(),
-//                          FutureBuilder(
-//                              future: syncComments(),
-//                              builder: (context, snapshot) {
-//                                if (snapshot.connectionState ==
-//                                    ConnectionState.done) {
-//                                  return Column(
-//                                    children: commentsData
-//                                        .map((e) => PostCommentCell(
-//                                      data: e,
-//                                    ))
-//                                        .toList(),
-//                                  );
-//                                } else {
-//                                  return Center(
-//                                    child: CircularProgressIndicator(),
-//                                  );
-//                                }
-//                              })
+                        Column(
+                          children: answerData
+                              .map((e) => AnswerCell(
+                                    data: e,
+                                    pressLike: () =>
+                                        pressLike(answerData.indexOf(e)),
+                                  ))
+                              .toList(),
+                        )
                       ],
                 ),
               ),

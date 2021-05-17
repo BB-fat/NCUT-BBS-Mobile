@@ -74,3 +74,68 @@ class QuestionCell extends StatelessWidget {
     );
   }
 }
+
+class AnswerCell extends StatelessWidget {
+  final AnswerData data;
+  final Function pressLike;
+
+  AnswerCell({this.data, this.pressLike});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      width: Get.size.width,
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    height: 40,
+                    width: 40,
+                    child: CircleAvatar(
+                      backgroundImage: CachedNetworkImageProvider(
+                        data.author.avatar,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: pressLike,
+                      child: Text(data.isLike
+                          ? "已赞(${data.likes})"
+                          : "赞(${data.likes})"))
+                ],
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    data.author.accountName,
+                    style: TextStyle(color: Colors.blue, fontSize: 18),
+                  ),
+                  Text(
+                    DateTime.fromMillisecondsSinceEpoch(
+                            data.createTime.toInt() * 1000)
+                        .toIso8601String(),
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
+                  SizedBox(
+                    width: Get.size.width * 0.74,
+                    child: Text(data.content),
+                  )
+                ],
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

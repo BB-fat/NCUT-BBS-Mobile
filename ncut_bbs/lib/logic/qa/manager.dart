@@ -41,9 +41,24 @@ class QAManager {
     return res.data;
   }
 
+  Future createAnswer(int questionID, String content) =>
+      CreateAnswerApi(CreateAnswerRequest()
+            ..content = content
+            ..questionId = questionID)
+          .start();
+
   Future addViews(int questionID) async {
     await AddQuestionViewApi(AddQuestionViewsRequest()..id = questionID)
         .start();
     syncData();
   }
+
+  Future<List<AnswerData>> getAnswer(int questionID) async =>
+      (await GetAnswerApi(questionID).start()).data;
+
+  Future likeAnswer(int answerID) =>
+      LikeAnswerApi(LikeAnswerRequest()..id = answerID).start();
+
+  Future unlikeAnswer(int answerID) =>
+      UnlikeAnswerApi(UnLikeAnswerRequest()..id = answerID).start();
 }
