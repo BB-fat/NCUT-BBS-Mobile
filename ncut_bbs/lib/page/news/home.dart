@@ -13,15 +13,30 @@ class _NewsHomePageState extends State<NewsHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => ListView.separated(
-        itemBuilder: (context, index) => NewsCell(
-              data: _controller.newsListData[index],
-              onPressed: () => NewsManager.instance
-                  .navigateToDetail(_controller.newsListData[index]),
-            ),
-        separatorBuilder: (context, index) => Divider(
-              height: 1,
-            ),
-        itemCount: _controller.newsListData.length));
+    return Stack(
+      children: [
+        Obx(() => ListView.separated(
+            itemBuilder: (context, index) => NewsCell(
+                  data: _controller.newsListData[index],
+                  onPressed: () => NewsManager.instance
+                      .navigateToDetail(_controller.newsListData[index]),
+                ),
+            separatorBuilder: (context, index) => Divider(
+                  height: 1,
+                ),
+            itemCount: _controller.newsListData.length)),
+        Positioned(
+            bottom: 30,
+            child: SizedBox(
+              width: Get.size.width,
+              child: Center(
+                child: TextButton(
+                  child: Text("清空所有消息"),
+                  onPressed: () => NewsManager.instance.clearAllNews(),
+                ),
+              ),
+            ))
+      ],
+    );
   }
 }

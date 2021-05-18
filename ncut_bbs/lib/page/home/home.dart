@@ -41,9 +41,9 @@ class _HomePageState extends State<HomePage> {
         case 1:
           await QAManager.instance.syncData();
           break;
-        case 2:
-          await NewsManager.instance.syncData();
-          break;
+//        case 2:
+//          await NewsManager.instance.syncData();
+//          break;
       }
       setState(() {
         loading = false;
