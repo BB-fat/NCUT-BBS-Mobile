@@ -104,7 +104,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           ),
                           Align(
                             child: Text(
-                              "全部评论(${commentsData?.length ?? 0})",
+                              "全部评论",
                               style: TextStyle(color: Colors.grey),
                             ),
                             alignment: Alignment.centerRight,

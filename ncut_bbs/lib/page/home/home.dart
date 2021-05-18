@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ncut_bbs/logic/forum/manager.dart';
+import 'package:ncut_bbs/logic/news/manager.dart';
+import 'package:ncut_bbs/logic/qa/manager.dart';
 import 'package:ncut_bbs/page/forum/home.dart';
+import 'package:ncut_bbs/page/news/home.dart';
 import 'package:ncut_bbs/page/qa/home.dart';
 import 'package:ncut_bbs/page/user/home.dart';
 import 'package:ncut_bbs/ui/ui.dart';
@@ -14,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   final bottomBarItems = [
     {"icon": Icon(Icons.question_answer), "title": "论坛"},
     {"icon": Icon(Icons.home), "title": "问答"},
+    {"icon": Icon(Icons.add_alert), "title": "消息"},
     {"icon": Icon(Icons.account_circle), "title": "我"},
   ];
 
@@ -34,6 +38,12 @@ class _HomePageState extends State<HomePage> {
         case 0:
           await ForumManager.instance.syncData();
           break;
+        case 1:
+          await QAManager.instance.syncData();
+          break;
+        case 2:
+          await NewsManager.instance.syncData();
+          break;
       }
       setState(() {
         loading = false;
@@ -50,6 +60,7 @@ class _HomePageState extends State<HomePage> {
     return BasePage(
       title: title,
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         onTap: (i) => bottomBarIndexChange(i),
         items: bottomBarItems
@@ -59,7 +70,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: IndexedStack(
         index: currentIndex,
-        children: [ForumHomePage(), QAHomePage(), UserHomePage()],
+        children: [
+          ForumHomePage(),
+          QAHomePage(),
+          NewsHomePage(),
+          UserHomePage()
+        ],
       ),
     );
   }
